@@ -1,7 +1,7 @@
 <?php 
 require 'functions/EmployeeHandler.php';
 
-if(isset($_SESSION['LOGIN']) && $_SESSION['LOGIN'] === false) {
+if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] === false) {
 	header("Location: idLogin.php");
 	die();
 }
@@ -37,7 +37,7 @@ include 'layout/top.php';
 								<td> ".$row['id_number']." </td>
 								<td> ".$row['fname']." ".$row['mname']." ".$row['lname']." </td>
 								<td> 
-									<a href='ViewEmployee.php?".$row['id']."' class='btn btn-primary'>View</a>
+									<a href='ViewEmployee.php?emp_id=".$row['id']."' class='btn btn-primary'>View</a>
 									<a href='functions/EmployeeHandler.php?delete?user=".$row['id']."' class='btn btn-danger'>Delete</a>
 								</td>
 							</tr>

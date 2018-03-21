@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if(isset($_SESSION['LOGIN']) && $_SESSION['LOGIN'] === false) {
+if(!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] === false) {
 	header("Location: idLogin.php");
 	die();
 }
@@ -11,7 +11,7 @@ include 'layout/top.php';
 ?>
 
 <div class="row">
-	<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 20%">
+	<div class="col-md-4 col-md-offset-4" style="text-align: center; margin-top: 10%">
 		<div class="form-group">
 			<h4>Logged in as: <?php echo $_SESSION['id_number'] ?></h4>
 		</div>
