@@ -22,16 +22,23 @@ include 'layout/top.php';
 		<table class="table">
 			<tbody>
 				<tr>
+					<td><h4>Salary</h4></td>
+					<td>
+						<a href=<?php echo "Salary.php?emp_id=".$_GET['emp_id'] ?> class="btn btn-success">View</a>
+					</td>
+				</tr>
+
+				<tr>
 					<td><h4>Benefits</h4></td>
 					<td>
-						<a href="" class="btn btn-success">View</a>
+						<a href=<?php echo "Benefits.php?emp_id=".$_GET['emp_id'] ?> class="btn btn-success">View</a>
 					</td>
 				</tr>
 
 				<tr>
 					<td><h4>Deductions</h4></td>
 					<td>
-						<a href="" class="btn btn-success">View</a>
+						<a href=<?php echo "Deductions.php?emp_id=".$_GET['emp_id'] ?> class="btn btn-success">View</a>
 					</td>
 				</tr>
 			</tbody>
