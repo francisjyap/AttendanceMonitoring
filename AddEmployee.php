@@ -44,6 +44,11 @@ include 'layout/top.php';
 				<label>Last Name</label>
 				<input type="text" class="form-control" name="lname" id="lname">
 			</div>
+
+			<div class="form-group">
+				<label>Salary</label>
+				<input type="number" class="form-control" name="salary" id="salary">
+			</div>
 			
 			<div class="form-group">
 				<button type="submit" class="btn btn-success" style="float: right;">Add</button>

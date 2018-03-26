@@ -12,12 +12,28 @@ include 'layout/top.php';
 
 <div class="row rowForm">
 	<div class="col-md-8 col-md-offset-2">
-		<a href="Employees.php">Back to employee list</a>
+		<div class="form-group">
+			<?php 
+				if(isset($_GET['success'])) {
+					echo '<h2 style="color: green;">Attendance added successfully!</h2>';
+				}
+				if(isset($_GET['fail'])) {
+					echo '<h2 style="color: red;">Attendance added failed!</h2>';
+				}
+			?>
+		</div>
+		<a href="Employees.php" class="btn btn-danger">Back to employee list</a>
 		<h1>Attendance</h1>
-		<h2><?php
+		<h3><?php
 			$row = getEmployee($_GET['emp_id']);
-			echo "Employee: ".$row['fname']." ".$row['mname']." ".$row['lname'];
-		?></h2>
+			echo "Employee: ".$row['fname']." ".$row['mname']." ".$row['lname']; ?>
+		</h3>
+
+		<h3>
+			<?php 
+				echo "ID Number: ".$row['id_number'];
+			?>			
+		</h3>
 
 		<table class="table">
 			<tbody>
@@ -48,12 +64,13 @@ include 'layout/top.php';
 
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
-		<a href="" class="btn btn-success" style="float: right;">Time In/Out</a>
+		<a href="<?php echo 'CreateAttendance.php?emp_id='.$_GET['emp_id'] ?>" class="btn btn-success" style="float: right;">Time In/Out</a>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>Time In</th>
 					<th>Time Out</th>
+					<th>Total Salary Earned</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -65,9 +82,10 @@ include 'layout/top.php';
 							<tr>
 								<td> ".$row['time_in']." </td>
 								<td> ".$row['time_out']." </td>
+								<td> ".$row['total_salary']." </td>
 								<td>
 									<a href='EditAttendance.php?id=".$row['id']."' class='btn btn-primary'>Edit</a>
-									<a href='functions/AttendanceHandler.php?delete?id=".$row['id']."' class='btn btn-danger'>Delete</a>
+									<a href='functions/AttendanceHandler.php?delete_att&id=".$row['id']."' class='btn btn-danger'>Delete</a>
 								</td>
 							</tr>
 						";

@@ -33,7 +33,7 @@ include 'layout/top.php';
 
 				<div class="form-group">
 					<label>ID #</label>
-					<input type="number" class="form-control" name="id_number" id="id_number">
+					<input type="number" class="form-control" name="id_number" id="id_number" autofocus="true" autocomplete="false">
 				</div>
 				
 				<div class="form-group">
